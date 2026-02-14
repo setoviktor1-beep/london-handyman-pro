@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>London Handyman Pro - Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div id="adminRoot">
+    <section class="login-screen" id="loginScreen" aria-labelledby="admin-login-title">
+      <form class="login-card" id="loginForm">
+        <p class="login-brand">LONDON HANDYMAN PRO</p>
+        <h1 id="admin-login-title">Admin Login</h1>
+        <label for="adminPassword">Password</label>
+        <div class="password-wrap">
+          <input type="password" id="adminPassword" name="password" required>
+          <button type="button" id="togglePassword" aria-label="Show password">Show</button>
+        </div>
+        <p class="error" id="loginError" role="alert"></p>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </section>
+
+    <section class="admin-app hidden" id="adminApp">
+      <header class="admin-header">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu">☰</button>
+        <p>London Handyman Pro - Admin</p>
+        <button class="btn btn-outline" id="logoutBtn">Logout</button>
+      </header>
+
+      <div class="admin-layout">
+        <aside class="sidebar" id="sidebar">
+          <nav>
+            <button data-view="dashboard" class="nav-item active">Dashboard</button>
+            <button data-view="services" class="nav-item">Services</button>
+            <button data-view="pricing" class="nav-item">Pricing</button>
+            <button data-view="portfolio" class="nav-item">Portfolio</button>
+            <button data-view="testimonials" class="nav-item">Reviews</button>
+            <button data-view="inquiries" class="nav-item">Inquiries</button>
+            <button data-view="settings" class="nav-item">Settings</button>
+          </nav>
+        </aside>
+
+        <main class="admin-main" id="adminMain" tabindex="-1"></main>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal hidden" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">Edit</h2>
+        <button id="modalClose" aria-label="Close">×</button>
+      </div>
+      <form id="modalForm"></form>
+    </div>
+  </div>
+
+  <input type="file" id="importFile" class="hidden" accept="application/json">
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
