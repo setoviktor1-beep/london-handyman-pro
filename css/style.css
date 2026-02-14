@@ -605,13 +605,14 @@ a {
   border: 1px solid var(--border);
   background: #fff;
   color: var(--secondary);
-  padding: 8px 14px;
+  padding: 8px 14px 8px 10px;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   transition: all 0.3s ease;
 }
 
@@ -620,6 +621,18 @@ a {
   color: #fff;
   background: var(--primary);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.social-chip:hover .social-icon {
+  transform: scale(1.12) rotate(-6deg);
 }
 
 .footer-social {
@@ -631,11 +644,23 @@ a {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
+  font-size: 0.8rem;
+  padding: 7px 12px 7px 9px;
 }
 
 .footer-social .social-chip:hover {
   background: var(--primary);
   border-color: var(--primary);
+}
+
+.coverage-map .map-fallback {
+  height: 100%;
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 20px;
 }
 
 .contact-form {

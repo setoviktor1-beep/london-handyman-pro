@@ -239,7 +239,16 @@
 
   function initCoverageMap() {
     var mapEl = document.getElementById("coverageMap");
-    if (!mapEl || !window.L) {
+    if (!mapEl) {
+      return;
+    }
+
+    if (!window.L) {
+      mapEl.innerHTML =
+        '<div class="map-fallback">' +
+        "<div><strong>Map is loading unavailable right now.</strong><br>" +
+        'View area on <a href="https://www.openstreetmap.org/#map=10/51.5074/-0.1278" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>.</div>' +
+        "</div>";
       return;
     }
 
@@ -258,6 +267,10 @@
     }).addTo(map);
 
     window.L.marker([51.5074, -0.1278]).addTo(map).bindPopup("London Handyman Pro - Core coverage");
+
+    window.setTimeout(function () {
+      map.invalidateSize();
+    }, 120);
   }
 
   function init() {
