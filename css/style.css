@@ -551,6 +551,19 @@ a {
   color: var(--text-light);
 }
 
+.map-section {
+  padding-top: 0;
+}
+
+.coverage-map {
+  width: 100%;
+  min-height: 360px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
 .contact-grid {
   display: grid;
   gap: 36px;
@@ -576,6 +589,53 @@ a {
 .contact-hours {
   color: var(--text-dark);
   margin: 8px 0;
+}
+
+.contact-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.social-chip {
+  min-height: 42px;
+  min-width: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--secondary);
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-chip:hover {
+  border-color: var(--primary);
+  color: #fff;
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-social {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.footer-social .social-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.footer-social .social-chip:hover {
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .contact-form {

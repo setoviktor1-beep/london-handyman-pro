@@ -237,6 +237,29 @@
     });
   }
 
+  function initCoverageMap() {
+    var mapEl = document.getElementById("coverageMap");
+    if (!mapEl || !window.L) {
+      return;
+    }
+
+    var map = window.L.map(mapEl, { scrollWheelZoom: false }).setView([51.5074, -0.1278], 10);
+    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+
+    window.L.circle([51.5074, -0.1278], {
+      radius: 40000,
+      color: "#ff6b35",
+      fillColor: "#ff6b35",
+      fillOpacity: 0.15,
+      weight: 2
+    }).addTo(map);
+
+    window.L.marker([51.5074, -0.1278]).addTo(map).bindPopup("London Handyman Pro - Core coverage");
+  }
+
   function init() {
     renderServices();
     renderPricing();
@@ -246,6 +269,7 @@
     attachContactForm();
     attachNav();
     attachScrollAnimations();
+    initCoverageMap();
 
     if (window.lucide) {
       window.lucide.createIcons();
